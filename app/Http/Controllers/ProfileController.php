@@ -9,4 +9,7 @@ class ProfileController extends Controller
     public function index(){
         return view('profile');
     }
+    public function update(){
+        return 'update method runing...';
+    }
 }

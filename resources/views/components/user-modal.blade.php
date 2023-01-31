@@ -16,11 +16,15 @@
                 @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Your Email</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Your Password</label>
-                  <input type="password" class="form-control" id="password">
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="mb-3">
+                  <label for="confirm_password" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirm_password" name="confirm_password">
                 </div>
             </div>
             <div class="modal-footer">
