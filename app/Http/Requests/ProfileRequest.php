@@ -23,28 +23,10 @@ class ProfileRequest extends FormRequest
      */
     public function rules()
     {
-        switch ($this->method()){
-            case 'POST' : {
-                return [
-                    'name' => ['required', 'string', 'max:255'],
-                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                    'password' => ['required', 'string', 'min:8', 'confirmed'],
-                ];
-            }
-            case 'PUT' : {
-                //
-            }
-            case 'PATCH' : {
-                return [
-                    'name' => ['required', 'string', 'max:255'],
-                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users,id'.$this->route()->profile()->id],
-                    'password' => ['required', 'string', 'min:8', 'confirmed'],
-                ];
-            }
-            default: break;
-        }
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 }
