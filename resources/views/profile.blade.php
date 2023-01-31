@@ -20,6 +20,7 @@
                             <p>{{ Auth::user()->name }}</p>
                             <label for="">Your Email :</label>
                             <p>{{ Auth::user()->email }}</p>
+                            @include('components.user-modal')
                         </div>
                     </div>
                 </div>
