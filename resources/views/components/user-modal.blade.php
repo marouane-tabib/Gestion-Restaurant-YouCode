@@ -18,6 +18,9 @@
                   <label for="email" class="form-label">Your Email</label>
                   <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
                 </div>
+                @error('email')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
                 <div class="mb-3">
                   <label for="password" class="form-label">Your Password</label>
                   <input type="password" class="form-control" id="password" name="password">
