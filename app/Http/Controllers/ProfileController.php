@@ -20,6 +20,6 @@ class ProfileController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        return dump($request->email);
+        return redirect()->back();
     }
 }
