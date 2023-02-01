@@ -19,6 +19,7 @@ class ProfileController extends Controller
     {
         $email = $request->email ?: Auth::user()->email;
         $password = Hash::make($request->password)?: Auth::user()->password;
+        
         $user->update([
             'email' => $email,
             'password' => Hash::make($password),
