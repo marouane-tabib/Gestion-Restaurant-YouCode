@@ -24,7 +24,8 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'email' => 'required|string|email|max:255|unique:users',
+            // 'email' => 'required',
+            'email' => 'required|string|email|max:255|min:10|unique:users,email',
             // 'password' => 'required|string|min:8|confirmed',
         ];
     }
