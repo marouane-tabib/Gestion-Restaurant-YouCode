@@ -18,7 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/profile' , [ProfileController::class , 'index'])->middleware('auth')->name('profile');
-Route::post('/profile' , [ProfileController::class , 'update'])->middleware('auth')->name('profile.update');
+Route::post('/profile/{user}' , [ProfileController::class , 'update'])->middleware('auth')->name('profile.update');
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('profile',[ProfileController::class,'index'])->name('profile');
+//     Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
+//   });
 
 Auth::routes();
 
