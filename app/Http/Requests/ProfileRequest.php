@@ -24,7 +24,6 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'email' => 'required',
             'email' => 'required|string|email|max:255|min:5|unique:users,email',
             'password' => 'required|confirmed|string|min:8',
             'password_confirmation' => 'required|min:8'
