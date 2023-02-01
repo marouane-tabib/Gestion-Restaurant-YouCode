@@ -11,7 +11,7 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Update Information</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="{{ route('profile.update') }}">
+        <form method="POST" action="{{ route('profile.update',auth()->id()) }}">
         <div class="modal-body">
                 @csrf
                 <div class="mb-3">
