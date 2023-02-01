@@ -17,8 +17,9 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/profile' , [ProfileController::class , 'index'])->middleware('auth')->name('profile');
-Route::post('/profile' , [ProfileController::class , 'update'])->middleware('auth')->name('profile.update');
+Route::post('/profile/{user}' , [ProfileController::class , 'update'])->middleware('auth')->name('profile.update');
 
 Auth::routes();
 
