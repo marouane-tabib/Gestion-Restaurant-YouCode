@@ -8,6 +8,10 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+// Components
+@import 'components/scroll-bar';
+
 body{
     background: url('../img/bg5.jpg');
     // background: linear-gradient(45deg, #efefbb, #d4d3dd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -59,22 +63,3 @@ body{
 
 
 }
-    /* width */
-::-webkit-scrollbar {
-    width: 7px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
