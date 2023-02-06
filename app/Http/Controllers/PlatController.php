@@ -28,4 +28,7 @@ class PlatController extends Controller
         return redirect()->back();
     }
 
+    public function edit(){
+        //
+    }
 }

@@ -33,6 +33,9 @@
                                     <td>{{ $plat->description }}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
+                                            <a href="{{ route('plat.edit' , $plat->id) }}" class="btn btn-primary">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
                                             <a href="javascript:void(0)"
                                                onclick="if(confirm('Are You sure to delete this record?')){document.getElementById('delete-plat-{{ $plat->id }}').submit();} else {return false}"
                                                class="btn btn-danger">
