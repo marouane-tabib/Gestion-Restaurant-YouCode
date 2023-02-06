@@ -19,7 +19,7 @@ class PlatFactory extends Factory
         return [
             'user_id' => fake()->numberBetween(3, 13),
             'image' => fake()->imageUrl(),
-            'title' => fake()->title(),
+            'title' => fake()->realTextBetween(5 , 10),
             'description' => fake()->text(),
         ];
     }

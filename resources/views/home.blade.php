@@ -18,18 +18,20 @@
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
+                            @foreach ($plats as $plat)
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td><img src="{{ $plat->image }}" alt="{{ $plat->title }}" width="70" srcset=""></td>
+                                    <td>{{ $plat->title }}</td>
+                                    <td>{{ $plat->description }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                       </table>
                 </div>
