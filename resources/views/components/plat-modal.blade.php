@@ -10,9 +10,16 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="{{ route('profile.update',auth()->id()) }}">
+        <form method="POST" action="{{ route('plat.create')}}" enctype="multipart/form-data">
             <div class="modal-body">
                 @csrf
+                <div class="mb-3">
+                    <label for="image" class="form-label">Your Image</label>
+                    <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" aria-describedby="imageHelp" placeholder="Add Plat Image">
+                </div>
+                @error('image')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
                 <div class="mb-3">
                     <label for="title" class="form-label">Your Title</label>
                     <input type="title" class="form-control @error('title') is-invalid @enderror" id="title" name="title" aria-describedby="titleHelp" placeholder="Add Plat Title">
