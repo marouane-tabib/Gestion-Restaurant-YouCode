@@ -17,6 +17,7 @@ class PlatFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => fake()->numberBetween(3, 13),
             'image' => fake()->imageUrl(),
             'title' => fake()->title(),
             'description' => fake()->text(),

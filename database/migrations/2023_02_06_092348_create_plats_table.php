@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('plats', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('image' , 100);
             $table->string('title' , 50);
             $table->text('description' , 1000);
