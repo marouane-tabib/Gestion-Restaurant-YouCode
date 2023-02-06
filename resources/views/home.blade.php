@@ -21,15 +21,17 @@
                             <th scope="col">Image</th>
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
+                            <th scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($plats as $plat)
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td><img src="{{ $plat->image }}" alt="{{ $plat->title }}" width="70" srcset=""></td>
+                                    <td><img src="{{ asset('storage/Image/'.$plat->image) }}" alt="{{ $plat->title }}" width="70" srcset=""></td>
                                     <td>{{ $plat->title }}</td>
                                     <td>{{ $plat->description }}</td>
+                                    <td>Delete / Update</td>
                                 </tr>
                             @endforeach
                         </tbody>
