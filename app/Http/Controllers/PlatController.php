@@ -28,7 +28,7 @@ class PlatController extends Controller
         return redirect()->back();
     }
 
-    public function edit(){
-        //
+    public function edit(Plat $plat){
+        return view('plats.edit' , ['plat' => $plat]);
     }
 }
