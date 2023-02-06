@@ -17,6 +17,7 @@ class PlatFactory extends Factory
     public function definition()
     {
         return [
+            'image' => fake()->imageUrl(),
             'title' => fake()->title(),
             'description' => fake()->text(),
         ];
