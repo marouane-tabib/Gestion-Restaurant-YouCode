@@ -26,3 +26,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [PlatController::class, 'create'])->name('plat.create');
+Route::delete('/home/{plat}', [PlatController::class, 'destroy'])->name('plat.destroy');

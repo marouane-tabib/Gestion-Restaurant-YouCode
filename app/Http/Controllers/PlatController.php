@@ -22,4 +22,10 @@ class PlatController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function destroy(Plat $plat){
+        $delete = $plat->delete();
+        return redirect()->back();
+    }
+
 }

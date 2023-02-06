@@ -31,7 +31,19 @@
                                     <td><img src="{{ asset('storage/Image/'.$plat->image) }}" alt="{{ $plat->title }}" width="70" srcset=""></td>
                                     <td>{{ $plat->title }}</td>
                                     <td>{{ $plat->description }}</td>
-                                    <td>Delete / Update</td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <a href="javascript:void(0)"
+                                               onclick="if(confirm('Are You sure to delete this record?')){document.getElementById('delete-plat-{{ $plat->id }}').submit();} else {return false}"
+                                               class="btn btn-danger">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
+                                        <form action="{{ route('plat.destroy' , $plat->id) }}" method="post" class="d-none" id="delete-plat-{{ $plat->id }}" >
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
