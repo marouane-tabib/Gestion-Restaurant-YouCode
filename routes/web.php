@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -24,3 +25,4 @@ Route::post('/profile/{user}' , [ProfileController::class , 'update'])->middlewa
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home', [PlatController::class, 'create'])->name('plat.create');
