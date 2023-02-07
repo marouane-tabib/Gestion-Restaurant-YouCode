@@ -20,14 +20,15 @@ use App\Http\Controllers\ProfileController;
 //     return view('welcome');
 // });
 
-Route::get('/profile' , [ProfileController::class , 'index'])->middleware('auth')->name('profile');
-Route::post('/profile/{user}' , [ProfileController::class , 'update'])->middleware('auth')->name('profile.update');
-
 Auth::routes();
 
 Route::get('/' , [HomeController::class , 'index'])->name('landing_page');
-Route::get('/dashboard/home', [PlatController::class, 'index'])->name('home');
-Route::post('/dashboard/home', [PlatController::class, 'create'])->name('plat.create');
-Route::delete('/dashboard/home/{plat}', [PlatController::class, 'destroy'])->name('plat.destroy');
-Route::get('/dashboard/home/{plat}', [PlatController::class, 'edit'])->name('plat.edit');
-Route::post('/dashboard/home/{plat}', [PlatController::class, 'update'])->name('plat.update');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/profile' , [ProfileController::class , 'index'])->name('profile');
+    Route::post('/profile/{user}' , [ProfileController::class , 'update'])->name('profile.update');
+    Route::get('/dashboard/home', [PlatController::class, 'index'])->name('home');
+    Route::post('/dashboard/home', [PlatController::class, 'create'])->name('plat.create');
+    Route::delete('/dashboard/home/{plat}', [PlatController::class, 'destroy'])->name('plat.destroy');
+    Route::get('/dashboard/home/{plat}', [PlatController::class, 'edit'])->name('plat.edit');
+    Route::post('/dashboard/home/{plat}', [PlatController::class, 'update'])->name('plat.update');
+});
