@@ -7,7 +7,7 @@
             <div class="col-6 col-md-3 p-1">
                 <div class=" plat-card bg-white px-0 pb-2 m-1">
                     <div class="col">
-                        <img src="{{ asset('storage/Image/'.$plat->image) }}" class="img-fluid" alt="">
+                        <img src="{{ asset('storage/Image/'.$plat->image) }}" width="100%" class="img-fluid" alt="">
                     </div>
                     <div class="col p-2">
                         <h5 class="card-title">{{ $plat->title }}</h5>
