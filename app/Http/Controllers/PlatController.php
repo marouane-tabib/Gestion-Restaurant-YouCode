@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class PlatController extends Controller
 {
+    public function index(Plat $plats)
+    {
+        $plats = $plats->get()->where('user_id' , Auth::user()->id);
+        return view('home' , ['plats' => $plats]);
+    }
+    
     public function create(Plat $plat , Request $request){
         if($request->file('image')){
             $file= $request->file('image');

@@ -26,6 +26,6 @@ class HomeController extends Controller
     public function index(Plat $plats)
     {
         $plats = $plats->get()->where('user_id' , Auth::user()->id);
-        return view('home' , ['plats' => $plats]);
+        return view('welcome' , ['plats' => $plats]);
     }
 }
