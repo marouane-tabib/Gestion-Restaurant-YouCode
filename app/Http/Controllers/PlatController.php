@@ -37,12 +37,13 @@ class PlatController extends Controller
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('storage/Image'), $filename);
-        }
+        }else{ $filename = $plat->image; }
         $plat->update([
-            'image' => "",
+            'image' => $filename,
+            'user_id' => Auth::user()->id,
             'title' => $request->title,
             'description' => $request->description,
-            'user_id' => Auth::user()->id,
         ]);
+        return redirect()->route('home');
     }
 }

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Update' . $plat->name)}}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('plat.create' , $plat->id)}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('plat.update' , $plat->id)}}" enctype="multipart/form-data">
                         <div class="modal-body">
                             @csrf
                             <img src="{{ asset('storage/Image/'.$plat->image) }}" width="300" alt="" srcset=""><br>
