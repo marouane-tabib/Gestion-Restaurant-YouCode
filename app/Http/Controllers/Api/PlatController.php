@@ -25,10 +25,10 @@ class PlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return response()->json('Create Method is runing...');
-    }
+    // public function create()
+    // {
+    //     return response()->json('Create Method is runing...');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -87,10 +87,10 @@ class PlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plat $plat)
-    {
-        return response()->json($plat);
-    }
+    // public function edit(Plat $plat)
+    // {
+    //     return response()->json($plat);
+    // }
 
     /**
      * Update the specified resource in storage.
