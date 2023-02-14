@@ -70,4 +70,9 @@ body{
             font-weight: bold;
         }
     }
+    .main-table-card{
+        justify-content: center;
+        position: relative;
+        z-index: -1;
+    }
 }
