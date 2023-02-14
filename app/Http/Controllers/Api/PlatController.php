@@ -72,9 +72,13 @@ class PlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Plat $plat , $id)
+    public function show(Plat $plat)
     {
-        return response()->json('Show Method is runing...' , $id);
+        return response()->json([
+            'status' => "success",
+            'message' => "The record is ready to show hem !",
+            'data-form' => [$plat],
+        ] , 200);
     }
 
     /**
