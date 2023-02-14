@@ -63,7 +63,7 @@ class PlatController extends Controller
             'status' => "success",
             'message' => "New record created successfully!",
             'data-form' => [$request->all()],
-        ] , 200);
+        ] , 201);
     }
 
     /**
