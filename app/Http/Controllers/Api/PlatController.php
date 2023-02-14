@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Plat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PlatController extends Controller
 {
@@ -12,9 +14,10 @@ class PlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Plat $plat)
     {
-        return response()->json('Index Method is runing...');
+        return response()->json($plat->all());
+        //
     }
 
     /**
@@ -33,9 +36,34 @@ class PlatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Plat $plat , Request $request)
     {
-        return response()->json('Store Method is runing...');
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'user_id' => 'required',
+            'image' => 'required',
+        ]);
+        $plat->create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'user_id' => 3,
+            'image' => "202302100814ella-olsson-_Buh5P_61JE-unsplash.jpg"
+        ]);
+
+        if ($validator->fails()){
+            return response()->json([
+                'status' => 'fails',
+                'message' => $validator->errors(),
+                'data-form' => [$request->all()]
+            ] , 400);
+        }
+
+        return response()->json([
+            'status' => "success",
+            'message' => "New record created successfully!",
+            'data-form' => [$request->all()],
+        ] , 200);
     }
 
     /**
@@ -44,9 +72,9 @@ class PlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Plat $plat , $id)
     {
-        return response()->json('Show Method is runing...');
+        return response()->json('Show Method is runing...' , $id);
     }
 
     /**
@@ -55,9 +83,9 @@ class PlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Plat $plat)
     {
-        return response()->json('Edit Method is runing...');
+        return response()->json($plat);
     }
 
     /**
@@ -69,7 +97,7 @@ class PlatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return response()->json('Update Method is runing...');
+        return response()->json($request->name);
     }
 
     /**
