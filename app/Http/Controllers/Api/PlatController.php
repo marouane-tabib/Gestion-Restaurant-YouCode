@@ -99,9 +99,33 @@ class PlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Plat $plat , Request $request)
     {
-        return response()->json($request->name);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        if ($validator->fails()){
+            return response()->json([
+                'status' => 'fails update',
+                'message' => $validator->errors(),
+                'data-form' => $request->all()
+            ] , 400);
+        }
+        $plat->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            // 'user_id' => 3,
+            'image' => "202302100814ella-olsson-_Buh5P_61JE-unsplash.jpg"
+        ]);
+
+        return response()->json([
+            'status' => "success",
+            'message' => "New record updated successfully!",
+            'data-form' => [$request->all()],
+        ] , 200);
     }
 
     /**
