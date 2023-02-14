@@ -110,8 +110,14 @@ class PlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Plat $plat)
     {
-        return response()->json('Destroy Method is runing...');
+        $result = $plat->delete();
+
+        return response()->json([
+            'status' => "success",
+            'message' => "Record deleted successfully!",
+            'data-form' => [$result],
+        ] , 200);
     }
 }
